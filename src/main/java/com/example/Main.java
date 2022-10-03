@@ -14,6 +14,8 @@ public class Main {
 		Etudiant recordS = new Etudiant();
 		TeacherManaging nrT=new TeacherManaging();
 		Enseignant recordT = new Enseignant();
+		DepartementManaging nrD=new DepartementManaging();
+		Departement recordD = new Departement();
 	
 		try (
         Scanner input = new Scanner(System.in)) {
@@ -66,6 +68,7 @@ public class Main {
 
 
 					  		    case 2:
+
 								
 										   System.out.print("Entrer le numero de User : ");
 										   int id_T = input.nextInt();
@@ -98,6 +101,23 @@ public class Main {
 										   nrT.addT(recordT);
 										   System.out.println(recordT.toString());
 										   break;
+							    case 3:
+											System.out.println("entrer le id departement");
+											int id_Dep=input.nextInt();
+
+											System.out.println("entrer le nom du departement");
+											String NomD = input.next();
+
+											System.out.println("entrer le id du college");
+											int id_College  = input.nextInt();
+
+											recordD  = new Departement(id_Dep,NomD,id_College);
+											nrD.addD(recordD);
+											System.out.println(recordD.toString());
+								break;
+							    case 4:
+										   Menu();
+										   break;
 
 						   }
 				   case 2:
@@ -127,6 +147,19 @@ public class Main {
 							"teacher id does not exist\n");
 					}
 
+					break;    
+					            case 3:
+								System.out.print(
+									"What is the Student id ? ");
+								int bookIdD = input.nextInt();
+			
+								if (!nrD.findD(bookIdD)) {
+									System.out.println(
+										"Student id does not exist\n");
+								}
+								break;
+								case 4:
+					Menu();
 					break;
 
 						}
@@ -142,12 +175,19 @@ public class Main {
 					nrS.displayS();
 					break;
 								case 2:
+
                     nrT.displayT();
+					break;
+				            	case 3:
+					nrD. displayD();
+					break;
+								case 4:
+					Menu();
 					break;
 				   }
 				   break;
 				
-				case 4:
+					case 4:
 
 					
 					System.out.println(
@@ -157,10 +197,9 @@ public class Main {
 					break;
 
 				
-				default:
-
-					System.out.println("\nInvalid input\n");
-					break;
+				      default:
+						System.out.println("\nInvalid input\n");
+		            	break;
 					
 				}
 
@@ -176,37 +215,46 @@ public class Main {
         System.out.println("************Menu***************");
         System.out.println("1: Add");
         System.out.println("2: Search ");
-		System.out.print("3: Dispaly \n3");
+		System.out.print("3: Dispaly \n");
+		System.out.println("4: Exit");
+	
 
 		System.out.println("Enter your selection");
 
     }
 	
 	public static void addMenu()
+
 	{
 
 		System.out.println("Add");
 		System.out.println("1: Add Student");
 		System.out.println("2: Add Teacher");
-	
+		System.out.println("3: Add D epartement");
+		System.out.print("4: get back to the main menu\n");
 		System.out.print("Enter your selection : ");
 	}
+
 	public static void searchMenu(){
 
 
        System.out.println("Search");
-       System.out.println("1: search student ");
+       System.out.println("1: Search student ");
        System.out.println("2: Search Teacher");
+	   System.out.println("3: Search Departement");
+	   System.out.print("4: get back to the main menu\n");
 	   System.out.print("Enter your selection : ");
 
 	}
-
 
 	public static void dispMenu(){
 
 		System.out.println("display");
 		System.out.println("1: display students");
 		System.out.println("2: dispaly Teachers");
+		System.out.println("3: display Departement");
+	
+		System.out.print("4: get back to the main menu\n");
 
 
 	}
