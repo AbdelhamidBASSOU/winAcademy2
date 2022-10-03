@@ -16,7 +16,7 @@ public class StudentManaging {
 
 
 	
-	public void add(Etudiant record)
+	public void addS(Etudiant record)
 	{
 
 	
@@ -71,7 +71,7 @@ public class StudentManaging {
 	
 
 	
-	public void display()
+	public void displayS()
 	{
 
 		

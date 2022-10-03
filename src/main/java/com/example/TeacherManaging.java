@@ -16,11 +16,11 @@ public class TeacherManaging {
 
 
 	
-	public void add(Enseignant record)
+	public void addT(Enseignant record)
 	{
 
 	
-		if (!find(record.getId_User())) {
+		if (!findT(record.getId_User())) {
 			list.add(record);
 		}
 		else {
@@ -34,7 +34,7 @@ public class TeacherManaging {
 	
 
 
-	public boolean find(int id_User)
+	public boolean findT(int id_User)
 	{
 
 		
@@ -71,7 +71,7 @@ public class TeacherManaging {
 	
 
 	
-	public void display()
+	public void displayT()
 	{
 
 		

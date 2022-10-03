@@ -10,8 +10,10 @@ public class Main {
 	{
 
 		
-		StudentManaging nr = new StudentManaging();
-		Etudiant record = new Etudiant();
+		StudentManaging nrS = new StudentManaging();
+		Etudiant recordS = new Etudiant();
+		TeacherManaging nrT=new TeacherManaging();
+		Enseignant recordT = new Enseignant();
 	
 		try (
         Scanner input = new Scanner(System.in)) {
@@ -23,92 +25,127 @@ public class Main {
                 option = input.nextInt();
  
                 switch (option) {
-                case 1:
-                 int secondOption = 0;
-                        sous_Menu1();
-                        secondOption = input.nextInt();
+					case 1:
+					int secondOption = 0;
+						   addMenu();
+						   secondOption = input.nextInt();
+   
+						   switch(secondOption){
+								case 1:
+											System.out.print("Entrer le numero de User : ");
+											int id_S = input.nextInt();
+			
+											System.out.print("Entrez le prenom d'etudiant : ");
+											String NomS = input.next();
+			
+											System.out.print("Entrez le nom de famille : ");
+											String PrenomS = input.next();
+			
+											System.out.print("Entrer l'email de l'etudiant :");
+											String MailS = input.next();
+			
+											System.out.print("entrer le numéro tél de l'etudiant : ");
+											String telS = input.next();
+			
+											System.out.print("Est-ce-que ce compte est active : ");
+											boolean is_ActiveS= input.nextBoolean();
+			
+											System.out.print("entrer le numero du role : ");
+											int id_RoleS = input.nextInt();
+			
+											System.out.print("L'Etudiant à commencer à quelle date : ");
+											String date_ComS = input.next();
+			
+											System.out.print("");
+									
+			
+											recordS  = new Etudiant(id_S,NomS,PrenomS,MailS,telS,is_ActiveS,id_RoleS,date_ComS);
+											nrS.addS(recordS);
+											System.out.println(recordS.toString());
+													break;
 
-                        switch(secondOption){
-                             case 1:
 
+					  		    case 2:
+								
+										   System.out.print("Entrer le numero de User : ");
+										   int id_T = input.nextInt();
+		   
+										   System.out.print("Entrez le prenom de l'enseignant : ");
+										   String NomT = input.next();
+		   
+										   System.out.print("Entrez le nom de famille de l'enseignant: ");
+										   String PrenomT = input.next();
+		   
+										   System.out.print("Entrer l'email de l'enseignant :");
+										   String MailT = input.next();
+		   
+										   System.out.print("entrer le numéro tél de l'enseignant : ");
+										   String telT = input.next();
+		   
+										   System.out.print("Est-ce-que ce compte est active : ");
+										   boolean is_ActiveT= input.nextBoolean();
+		   
+										   System.out.print("entrer le numero du role : ");
+										   int id_RoleT = input.nextInt();
+		   
+										   System.out.print("L'Ensignant à commencer à quelle date : ");
+										   String date_ComT = input.next();
+		   
+										   System.out.print("");
+								
+		   
+										   recordT  = new Enseignant(id_T,NomT,PrenomT,MailT,telT,is_ActiveT,id_RoleT,date_ComT);
+										   nrT.addT(recordT);
+										   System.out.println(recordT.toString());
+										   break;
 
-					System.out.print(
-						"What is the Student id Number ? ");
-
-					int id_User = input.nextInt();
-
-					
-					System.out.print(
-						"What is the Student last Name ? ");
-
-					String Nom = input.next();
-				
- 
-					System.out.print(
-						"What is the Student first name ? ");
-
-					String Prenom = input.next();
-
-			        
-					System.out.print(
-						"What is the Student email? ");
-
-					String Mail = input.next();
-
-			         
-					System.out.print(
-						"What is the Student phone number? ");
-
-					String Tel = input.next();
-
-			         
-					System.out.print(
-						"is the account active? ");
-
-					Boolean is_Active = input.nextBoolean();
-			     
-
-			        System.out.print(
-			        "what is the student id_role ");
-
-			        int id_Role = input.nextInt();
-			    
-			    
-			        System.out.print(
-			        "what is the student starting date");
-
-			        String date_Com = input.next();
-			    
-			    
-					
-					record = new Etudiant(id_User,Nom,Prenom,Mail,Tel,is_Active,id_Role,date_Com);
-					
-					nr.add(record);
-					System.out.println(record.toString());
-
-					
-					break;
-
-				
-				case 2:
-
-					
+						   }
+				   case 2:
+					int thirdOption =0;
+					searchMenu();
+				   thirdOption = input.nextInt();
+   
+				   switch(thirdOption){
+								case 1:
 					System.out.print(
 						"What is the Student id ? ");
 					int bookId = input.nextInt();
 
-					if (!nr.find(bookId)) {
+					if (!nrS.find(bookId)) {
 						System.out.println(
 							"Student id does not exist\n");
+					}
+					break;
+								case 2:
+
+					System.out.print(
+						"What is the Teacher id ? ");
+					int bookIdT	 = input.nextInt();
+
+					if (!nrT.findT(bookIdT)) {
+						System.out.println(
+							"teacher id does not exist\n");
 					}
 
 					break;
 
-				
-				case 3:
-					nr.display();
-					break;
+						}
 
+					break;
+				   case 3:
+				   int fourthOption =0;
+					dispMenu();
+				   fourthOption = input.nextInt();
+   
+				   switch(fourthOption){
+								case 1:
+					nrS.displayS();
+					break;
+								case 2:
+                    nrT.displayT();
+					break;
+				   }
+				   break;
 				
 				case 4:
 
@@ -124,43 +161,52 @@ public class Main {
 
 					System.out.println("\nInvalid input\n");
 					break;
+					
 				}
-			}
 
-			
+			}
 			while (option != 4);
 		}
+		
 	}
 
 
     public static void Menu(){
 
         System.out.println("************Menu***************");
-        System.out.println("1: Etudiant");
-        System.out.println("2: Enseignant");
+        System.out.println("1: Add");
+        System.out.println("2: Search ");
+		System.out.print("3: Dispaly \n3");
+
 		System.out.println("Enter your selection");
 
     }
 	
-	public static void sous_Menu1()
+	public static void addMenu()
 	{
 
-		System.out.println("Etudiant");
+		System.out.println("Add");
 		System.out.println("1: Add Student");
-		System.out.println("2: Search Student");
-		System.out.println("3: Display Students");
-		System.out.println("4: go back to main menu");
+		System.out.println("2: Add Teacher");
+	
 		System.out.print("Enter your selection : ");
 	}
-	public static void sous_Menu2(){
+	public static void searchMenu(){
 
 
-       System.out.println("Enseignant");
-       System.out.println("1: Add Teacher");
+       System.out.println("Search");
+       System.out.println("1: search student ");
        System.out.println("2: Search Teacher");
-	   System.out.println("3: Display Teachers");
-	   System.out.println("4: go back to main menu");
 	   System.out.print("Enter your selection : ");
+
+	}
+
+
+	public static void dispMenu(){
+
+		System.out.println("display");
+		System.out.println("1: display students");
+		System.out.println("2: dispaly Teachers");
 
 
 	}
