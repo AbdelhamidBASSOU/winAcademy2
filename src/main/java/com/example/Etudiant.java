@@ -1,5 +1,5 @@
 package com.example;
-
+import java.util.stream.Collectors;
 public class Etudiant extends User {
 
 private String date_Com;
@@ -38,4 +38,6 @@ public Etudiant(int id_User, String Nom, String Prenom, String Mail, String tel,
             + ", Prenom=" + Prenom + ", Mail=" + Mail + ", tel=" + tel + 
             ", is_Active=" + is_Active +", id_Role=" + id_Role + ", date_Com=" + date_Com +'}';
     }
+
+    
 }

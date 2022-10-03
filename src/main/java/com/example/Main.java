@@ -1,6 +1,9 @@
 package com.example;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 
 public class Main {
@@ -16,7 +19,13 @@ public class Main {
 		Enseignant recordT = new Enseignant();
 		DepartementManaging nrD=new DepartementManaging();
 		Departement recordD = new Departement();
-	
+	    
+        Etudiant Adam = new Etudiant(1,"Bakkar","Adam","ad@gmail.com","0674897643",true,1,"22-12-2021");
+		Etudiant Ahmed = new Etudiant(2,"Salim","Ahmed","ahm@gmail.com","067485432",true,1,"12-12-2021");
+
+
+
+
 		try (
         Scanner input = new Scanner(System.in)) {
            
@@ -258,4 +267,10 @@ public class Main {
 
 
 	}
+
+	// public void searchbyGroup(String nameClasse){
+	// 	List<Etudiant> sortedNames = Etudiant.stream().filter(student -> student.getnameClass().equals(nameClasse)).collect(Collectors.toList());
+	// 	sortedNames.forEach(student -> System.out.println(student.getFristName()));
+	// 	}
+
 }

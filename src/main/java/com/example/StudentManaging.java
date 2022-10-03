@@ -1,6 +1,8 @@
 package com.example;
 import java.util.LinkedList;
+import java.util.List;
 // import java.util.Scanner;
+import java.util.stream.Collectors;
 
 
 public class StudentManaging {
@@ -12,10 +14,7 @@ public class StudentManaging {
 		list = new LinkedList<>();
 	}
 
-	
 
-
-	
 	public void addS(Etudiant record)
 	{
 
@@ -51,6 +50,11 @@ public class StudentManaging {
 	}
 
 	
+	public static void streamTest(){
+		List<Etudiant> etudiantWithActiveAccount = Etudiant.stream().filter(c -> c.isIs_Active() ).collect(Collectors.toList());
+		etudiantWithActiveAccount.forEach(Etud -> System.out.println(Etud.getNom()));
+
+	}
 	
 	// public Etudiant findRecord(int idNumber)
 	// {
