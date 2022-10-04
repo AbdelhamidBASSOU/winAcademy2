@@ -1,9 +1,9 @@
 package com.example;
 
-import java.util.Arrays;
-import java.util.List;
+// import java.util.Arrays;
+// import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
+// import java.util.stream.Collectors;
 
 
 public class Main {
@@ -19,9 +19,14 @@ public class Main {
 		Enseignant recordT = new Enseignant();
 		DepartementManaging nrD=new DepartementManaging();
 		Departement recordD = new Departement();
-	    
-        Etudiant Adam = new Etudiant(1,"Bakkar","Adam","ad@gmail.com","0674897643",true,1,"22-12-2021");
-		Etudiant Ahmed = new Etudiant(2,"Salim","Ahmed","ahm@gmail.com","067485432",true,1,"12-12-2021");
+		SalleManaging nrSalle = new SalleManaging();
+		Salle recordSalle =new Salle();
+		CollegeManaging nrCollege = new CollegeManaging();
+		College recordCollege=new College();
+	    MatiereManaging nrMat = new MatiereManaging();
+		Matiere recordMat = new Matiere();
+        // Etudiant Adam = new Etudiant(1,"Bakkar","Adam","ad@gmail.com","0674897643",true,1,"22-12-2021");
+		// Etudiant Ahmed = new Etudiant(2,"Salim","Ahmed","ahm@gmail.com","067485432",true,1,"12-12-2021");
 
 
 
@@ -120,15 +125,67 @@ public class Main {
 											System.out.println("entrer le id du college");
 											int id_College  = input.nextInt();
 
+											System.out.print("");
+
 											recordD  = new Departement(id_Dep,NomD,id_College);
 											nrD.addD(recordD);
 											System.out.println(recordD.toString());
 								break;
-							    case 4:
+								case 4:
+                                            System.out.println("what is the classeroom id ?");
+											int id_Salle=input.nextInt();
+
+											System.out.print("what is the Departement that the classeroom follows id ?");
+											int id_DepS=input.nextInt();
+
+											System.out.println("what is the subject id ?");
+											int id_Matiere=input.nextInt();
+											
+											System.out.println("what is the classeroom name ?");
+											String NomSalle=input.next();
+
+											System.out.print("");
+
+											recordSalle=new Salle(id_Salle,id_DepS,id_Matiere,NomSalle);
+											nrSalle.addSalle(recordSalle);
+											System.out.println(recordSalle.toString());
+								break;
+								case 5:
+										    System.out.println("what is the id of the college? ");
+											int id_Colleg =input.nextInt();
+
+											System.out.println("what is the name of the college ?");
+											String NomC=input.next();
+
+											System.out.println("what is the id of the adresse of the college ?");
+											int id_AdresseC=input.nextInt();
+
+											System.out.print("");
+
+											recordCollege=new College(id_Colleg,NomC,id_AdresseC);
+											nrCollege.addCollege(recordCollege);
+											System.out.println(recordCollege.toString());
+
+								break;
+								case 6:
+											System.out.println("what is the id of the subject");
+											int id_Matier=input.nextInt();
+
+
+											System.out.println("what is the name of the subject ");
+											String Nom =input.next();
+
+											recordMat = new Matiere(id_Matier, Nom);
+											nrMat.addMatiere(recordMat);
+											System.out.println(recordMat.toString());
+								break;
+							    
+								case 7:
 										   Menu();
 										   break;
 
 						   }
+				  break;
 				   case 2:
 					int thirdOption =0;
 					searchMenu();
@@ -159,7 +216,7 @@ public class Main {
 					break;    
 					            case 3:
 								System.out.print(
-									"What is the Student id ? ");
+									"What is the Departement id ? ");
 								int bookIdD = input.nextInt();
 			
 								if (!nrD.findD(bookIdD)) {
@@ -168,12 +225,41 @@ public class Main {
 								}
 								break;
 								case 4:
+								System.out.print(
+									"What is the classeroom id ? ");
+								int bookIdSalle = input.nextInt();
+			
+								if (!nrSalle.findSalle(bookIdSalle)) {
+									System.out.println(
+										"Student id does not exist\n");
+								}
+								break;
+								case 5:
+                            	System.out.print(
+						"What is the College id ? ");
+					int bookIdCollege = input.nextInt();
+
+					if (!nrCollege.findCollege(bookIdCollege)) {
+						System.out.println(
+							"Student id does not exist\n");
+					}
+								break;
+								case 6:
+								System.out.print(
+									"What is the Matiere id ? ");
+								int bookIdMat = input.nextInt();
+			
+								if (!nrMat.findMatiere(bookIdMat)) {
+									System.out.println(
+										"Student id does not exist\n");
+								}
+								break;
+								case 7:
 					Menu();
 					break;
 
-						}
-
-					break;
+						   }
+				  break;
 				   case 3:
 				   int fourthOption =0;
 					dispMenu();
@@ -190,13 +276,121 @@ public class Main {
 				            	case 3:
 					nrD. displayD();
 					break;
+
 								case 4:
+        		    nrSalle.displaySalle();
+					break;
+
+                                case 5:
+					nrCollege.displayCollege();
+								break;
+								case 6:
+					nrMat.displayMatiere();
+					break;
+								case 7:
 					Menu();
 					break;
 				   }
 				   break;
-				
-					case 4:
+			    	case 4:
+				int fifthOption=0;
+				deleteMenu();
+				fifthOption= input.nextInt();
+				switch(fifthOption){
+
+       				            case 1:
+				System.out.print(
+                    "What is the Student id number ? ");
+                int rId = input.nextInt();
+ 
+                nrS.deleteStudent(rId);
+ 
+				           break;
+						        case 2:
+						   System.out.print(
+							"What is the teacher id number ? ");
+						int TId = input.nextInt();
+		 
+						nrT.deleteTeacher(TId);
+						   break;
+					        	case 3:
+								System.out.print(
+									"What is the departement id number ? ");
+								int DId = input.nextInt();
+				 
+								nrD.deleteDep(DId);
+						break;
+                        
+								case 4:
+		            	System.out.print(
+									"What is the classeroom id number ? ");
+								int SalleId = input.nextInt();
+				 
+								nrSalle.deleteSalle(SalleId);
+			break;
+								case 5:
+								System.out.print(
+									"What is the college id number ? ");
+								int CId = input.nextInt();
+				 
+								nrCollege.deleteCollege(CId);
+		                   	break;
+								case 6:
+							System.out.print(
+								"What is the Matiere id number ? ");
+							int MId = input.nextInt();
+			 
+							nrMat.deleteMatiere(MId);
+							break;
+			}
+
+		  		   break;
+				   case 5:
+				   int sixthOption=0;
+				   updateMenu();
+				   sixthOption=input.nextInt();
+				   switch(sixthOption){
+
+							   case 1:
+							   System.out.print(
+								"What is the Student id number? ");
+							int rIdNo = input.nextInt();
+							nrS.update(rIdNo, input);
+							   break;
+							  case 2:
+							  System.out.print(
+								"What is the Student id number? ");
+							int rIdNoT = input.nextInt();
+							nrT.update(rIdNoT, input);
+							  break;
+							  case 3:
+							  System.out.print(
+								"What is the Student id number? ");
+							int rIdNoD= input.nextInt();
+							nrD.update(rIdNoD, input);
+							  break;
+							  case 4:
+							  System.out.print(
+								"What is the Student id number? ");
+							int rIdNoSalle= input.nextInt();
+							nrSalle.update(rIdNoSalle, input);
+							  break;
+							  case 5:
+							  System.out.print(
+								"What is the Student id number? ");
+							int rIdNoCollege= input.nextInt();
+							nrCollege.update(rIdNoCollege, input);
+							  break;
+							  case 6:
+							  System.out.print(
+								"What is the Student id number? ");
+							int rIdNoMatiere= input.nextInt();
+							nrMat.update(rIdNoMatiere, input);
+							  break;
+				   }
+
+				   break;
+					case 6:
 
 					
 					System.out.println(
@@ -213,7 +407,7 @@ public class Main {
 				}
 
 			}
-			while (option != 4);
+			while (option != 9);
 		}
 		
 	}
@@ -225,7 +419,9 @@ public class Main {
         System.out.println("1: Add");
         System.out.println("2: Search ");
 		System.out.print("3: Dispaly \n");
-		System.out.println("4: Exit");
+		System.out.println("4: delete");
+		System.out.println("5: update");
+		System.out.println("6: Exit");
 	
 
 		System.out.println("Enter your selection");
@@ -236,41 +432,71 @@ public class Main {
 
 	{
 
-		System.out.println("Add");
+		System.out.println(":::::::::::Add::::::::::");
 		System.out.println("1: Add Student");
 		System.out.println("2: Add Teacher");
-		System.out.println("3: Add D epartement");
-		System.out.print("4: get back to the main menu\n");
+		System.out.println("3: Add Departement");
+		System.out.println("4: Add Salle");
+		System.out.println("5: Add College");
+		System.out.println("6: Add Matiere");
+		System.out.print("7: get back to the main menu\n");
 		System.out.print("Enter your selection : ");
 	}
 
 	public static void searchMenu(){
 
 
-       System.out.println("Search");
+       System.out.println(":::::::::::Search:::::::::::");
        System.out.println("1: Search student ");
        System.out.println("2: Search Teacher");
 	   System.out.println("3: Search Departement");
-	   System.out.print("4: get back to the main menu\n");
+	   System.out.println("4: Search Salle");
+	   System.out.println("5: Search College");
+	   System.out.println("6: Search Matiere");
+	   System.out.print("7: get back to the main menu\n");
 	   System.out.print("Enter your selection : ");
 
 	}
 
 	public static void dispMenu(){
 
-		System.out.println("display");
+		System.out.println("::::::::::::::display:::::::::::::::");
 		System.out.println("1: display students");
 		System.out.println("2: dispaly Teachers");
-		System.out.println("3: display Departement");
-	
-		System.out.print("4: get back to the main menu\n");
+		System.out.println("3: display Departements");
+		System.out.println("4: dispaly Salles");
+		System.out.println("5: dispaly Colleges");
+		System.out.println("6: dispaly matieres");
+		System.out.print("7: get back to the main menu\n");
+		System.out.print("Enter your selection : ");
 
 
 	}
 
-	// public void searchbyGroup(String nameClasse){
-	// 	List<Etudiant> sortedNames = Etudiant.stream().filter(student -> student.getnameClass().equals(nameClasse)).collect(Collectors.toList());
-	// 	sortedNames.forEach(student -> System.out.println(student.getFristName()));
-	// 	}
+   public static void deleteMenu(){
+
+	System.out.println(":::::::::::::::delete:::::::::::::::");
+	System.out.println("1: delete student");
+	System.out.println("2: delete Teacher");
+	System.out.println("3: delete Departement");
+	System.out.println("4: delete Salle");
+	System.out.println("5: delete College");
+	System.out.println("6: delete Matiere");
+	System.out.print("7: get back to the main menu\n");
+	System.out.print("Enter your selection : ");
+   }
+
+   public static void updateMenu(){
+
+	System.out.println(":::::::::::::::update:::::::::::::::");
+	System.out.println("1: update student");
+	System.out.println("2: update Teacher");
+	System.out.println("3: update Departement");
+	System.out.println("4: update Salle");
+	System.out.println("5: update College");
+	System.out.println("6: update Matiere");
+	System.out.print("7: get back to the main menu\n");
+	System.out.print("Enter your selection : ");
+   }
 
 }

@@ -3,7 +3,14 @@ package com.example;
 public class College {
        
       private int id_College;
-    
+      private String Nom;
+      private int id_Adresse;
+
+
+public College(){
+
+}
+
       public College(int id_College,String Nom,int id_Adresse){
 
       }
@@ -14,7 +21,7 @@ public class College {
     public void setId_College(int id_College) {
         this.id_College = id_College;
     }
-    private String Nom;
+   
 
 
       public String getNom() {
@@ -23,7 +30,7 @@ public class College {
     public void setNom(String nom) {
         Nom = nom;
     }
-    private int id_Adresse;
+  
 
 
     public int getId_Adresse() {
@@ -33,6 +40,13 @@ public class College {
         this.id_Adresse = id_Adresse;
     }
 
+ public String toString()
+{
 
+    // Returning the record
+    return "College{"
+        + "id_Colleger=" + id_College + ", Nom=" + Nom
+        + ", id_Adresse=" + id_Adresse + '}';
+}
 
 }

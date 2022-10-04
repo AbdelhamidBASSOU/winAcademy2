@@ -1,5 +1,5 @@
 package com.example;
-import java.util.stream.Collectors;
+// import java.util.stream.Collectors;
 public class Etudiant extends User {
 
 private String date_Com;
@@ -32,6 +32,7 @@ public Etudiant(int id_User, String Nom, String Prenom, String Mail, String tel,
 
     @Override public String toString()
     {
+        
  
         return "Etudiant{"
             + "id_User=" + id_User + ", Nom=" + Nom

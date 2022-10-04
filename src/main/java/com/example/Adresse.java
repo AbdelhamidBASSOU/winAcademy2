@@ -3,6 +3,23 @@ package com.example;
 public class Adresse {
      
     private int id_Adresse;
+    private String Pay;
+    private String Ville;
+    private String code_Postale;
+
+   public Adresse(){}
+
+
+   public Adresse(int id_Adresse,String Pay,String Ville,String code_Postale){
+
+    this.id_Adresse=id_Adresse;
+    this.Pay=Pay;
+    this.Ville=Ville;
+    this.code_Postale=code_Postale;
+
+
+   }
+
 
     public int getId_Adresse() {
         return id_Adresse;
@@ -11,8 +28,7 @@ public class Adresse {
         this.id_Adresse = id_Adresse;
     }
 
-    private String Pay;
-
+   
     public String getPay() {
         return Pay;
     }
@@ -20,7 +36,7 @@ public class Adresse {
         Pay = pay;
     }
 
-    private String Ville;
+    
 
     public String getVille() {
         return Ville;
@@ -29,7 +45,7 @@ public class Adresse {
         Ville = ville;
     }
 
-    private String code_Postale;
+   
     
     public String getCode_Postale() {
         return code_Postale;
