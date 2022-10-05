@@ -25,6 +25,8 @@ public class Main {
 		College recordCollege=new College();
 	    MatiereManaging nrMat = new MatiereManaging();
 		Matiere recordMat = new Matiere();
+		EvaluationManaging nrEval=new EvaluationManaging();
+		Evaluation recordEval=new Evaluation();
         // Etudiant Adam = new Etudiant(1,"Bakkar","Adam","ad@gmail.com","0674897643",true,1,"22-12-2021");
 		// Etudiant Ahmed = new Etudiant(2,"Salim","Ahmed","ahm@gmail.com","067485432",true,1,"12-12-2021");
 
@@ -265,6 +267,13 @@ public class Main {
 									nrD.searchbyIdCollege(idCol);
 								break;
 								case 9:
+								System.out.print("Enter id etudiant");
+								int idEtud= input.nextInt();
+								System.out.print("entrer id matiere");
+								int idMat=input.nextInt();
+									nrEval.moyenne_etd(idEtud,idMat);
+								break;
+								case 10:
 					Menu();
 					break;
 
@@ -468,9 +477,10 @@ public class Main {
 	   System.out.println("4: Search Salle");
 	   System.out.println("5: Search College");
 	   System.out.println("6: Search Matiere");
-System.out.println("7: Search College by adresse id");
-System.out.println("8: dearch departememnt by college id");
-	   System.out.print("9: get back to the main menu\n");
+	   System.out.println("7: Search College by adresse id");
+	   System.out.println("8: Search departememnt by college id");
+	   System.out.println("9: find average ");
+	   System.out.print("10: get back to the main menu\n");
 	   System.out.print("Enter your selection : ");
 
 	}

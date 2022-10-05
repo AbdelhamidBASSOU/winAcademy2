@@ -1,6 +1,9 @@
 package com.example;
 import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 
 public class EvaluationManaging {
@@ -151,4 +154,12 @@ public class EvaluationManaging {
                     "Record Not Found in the Student list");
             }
         }
+ 
+        public void moyenne_etd(int id,int Matiere){
+
+             list.stream().filter(n->n.getId_User()==id && n.getId_Matiere()==Matiere).mapToDouble(note->note.getNote()).average();
+                System.out.println("la moyenne est : "+ list.stream().filter(n->n.getId_User()==id && n.getId_Matiere()==Matiere).map(note->note.getNote()).mapToDouble(Double::doubleValue).average() );
+            }
+       
+    
 }

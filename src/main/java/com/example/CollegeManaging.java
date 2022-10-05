@@ -153,6 +153,6 @@ public CollegeManaging()
 		List<College> collegeNames = list.stream().filter(College -> College.getId_Adresse()==(idAdress)).collect(Collectors.toList());
 		collegeNames.forEach(College -> System.out.println(College.getNom()));
 		} 
-	
 
+	
 }
