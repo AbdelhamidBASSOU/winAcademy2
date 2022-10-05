@@ -255,6 +255,16 @@ public class Main {
 								}
 								break;
 								case 7:
+								System.out.print("Enter id adresse");
+								int idAd= input.nextInt();
+									nrCollege.searchbyIdAdresse(idAd);
+								break;
+								case 8:
+								System.out.print("Enter id adresse");
+								int idCol= input.nextInt();
+									nrD.searchbyIdCollege(idCol);
+								break;
+								case 9:
 					Menu();
 					break;
 
@@ -342,8 +352,10 @@ public class Main {
 			 
 							nrMat.deleteMatiere(MId);
 							break;
+							    case 7:
+							   Menu();
+							   break;
 			}
-
 		  		   break;
 				   case 5:
 				   int sixthOption=0;
@@ -351,41 +363,44 @@ public class Main {
 				   sixthOption=input.nextInt();
 				   switch(sixthOption){
 
-							   case 1:
-							   System.out.print(
-								"What is the Student id number? ");
-							int rIdNo = input.nextInt();
-							nrS.update(rIdNo, input);
-							   break;
-							  case 2:
-							  System.out.print(
-								"What is the Student id number? ");
-							int rIdNoT = input.nextInt();
-							nrT.update(rIdNoT, input);
-							  break;
-							  case 3:
-							  System.out.print(
-								"What is the Student id number? ");
-							int rIdNoD= input.nextInt();
-							nrD.update(rIdNoD, input);
-							  break;
-							  case 4:
-							  System.out.print(
-								"What is the Student id number? ");
-							int rIdNoSalle= input.nextInt();
-							nrSalle.update(rIdNoSalle, input);
-							  break;
-							  case 5:
-							  System.out.print(
-								"What is the Student id number? ");
-							int rIdNoCollege= input.nextInt();
-							nrCollege.update(rIdNoCollege, input);
-							  break;
-							  case 6:
+								case 1:
+								System.out.print(
+									"What is the Student id number? ");
+								int rIdNo = input.nextInt();
+								nrS.update(rIdNo, input);
+								break;
+								case 2:
+								System.out.print(
+									"What is the Student id number? ");
+								int rIdNoT = input.nextInt();
+								nrT.update(rIdNoT, input);
+								break;
+								case 3:
+								System.out.print(
+									"What is the Student id number? ");
+								int rIdNoD= input.nextInt();
+								nrD.update(rIdNoD, input);
+								break;
+								case 4:
+								System.out.print(
+									"What is the Student id number? ");
+								int rIdNoSalle= input.nextInt();
+								nrSalle.update(rIdNoSalle, input);
+								break;
+								case 5:
+								System.out.print(
+									"What is the Student id number? ");
+								int rIdNoCollege= input.nextInt();
+								nrCollege.update(rIdNoCollege, input);
+								break;
+								case 6:
 							  System.out.print(
 								"What is the Student id number? ");
 							int rIdNoMatiere= input.nextInt();
 							nrMat.update(rIdNoMatiere, input);
+							  break;
+							    case 7:
+							  Menu();
 							  break;
 				   }
 
@@ -453,7 +468,9 @@ public class Main {
 	   System.out.println("4: Search Salle");
 	   System.out.println("5: Search College");
 	   System.out.println("6: Search Matiere");
-	   System.out.print("7: get back to the main menu\n");
+System.out.println("7: Search College by adresse id");
+System.out.println("8: dearch departememnt by college id");
+	   System.out.print("9: get back to the main menu\n");
 	   System.out.print("Enter your selection : ");
 
 	}

@@ -1,6 +1,9 @@
 package com.example;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Collections;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class CollegeManaging {
     
@@ -145,5 +148,11 @@ public CollegeManaging()
                 "Record Not Found in the Student list");
         }
     }
+
+	public void searchbyIdAdresse(int idAdress){
+		List<College> collegeNames = list.stream().filter(College -> College.getId_Adresse()==(idAdress)).collect(Collectors.toList());
+		collegeNames.forEach(College -> System.out.println(College.getNom()));
+		} 
+	
 
 }

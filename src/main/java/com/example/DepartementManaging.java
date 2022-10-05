@@ -1,6 +1,8 @@
 package com.example;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class DepartementManaging {
     
@@ -144,5 +146,8 @@ public class DepartementManaging {
         }
     }
 
-
+	public void searchbyIdCollege(int idCollege){
+		List<Departement> collegeNames = list.stream().filter(College -> College.getId_College()==(idCollege)).collect(Collectors.toList());
+		collegeNames.forEach(College -> System.out.println(College.getNom()));
+		} 
 }

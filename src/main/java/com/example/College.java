@@ -1,5 +1,6 @@
 package com.example;
-
+import java.util.List;
+import java.util.stream.Collectors;
 public class College {
        
       private int id_College;
@@ -12,6 +13,9 @@ public College(){
 }
 
       public College(int id_College,String Nom,int id_Adresse){
+        this.id_College=id_College;
+        this.id_Adresse=id_Adresse;
+        this.Nom=Nom;
 
       }
 
@@ -48,5 +52,6 @@ public College(){
         + "id_Colleger=" + id_College + ", Nom=" + Nom
         + ", id_Adresse=" + id_Adresse + '}';
 }
+
 
 }
